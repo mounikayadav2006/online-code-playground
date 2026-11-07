@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Online Code Playground - write HTML, CSS and JavaScript and see the result instantly.">
+  <title>Online Code Playground</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6feb'/%3E%3Ctext x='32' y='42' font-size='28' font-family='monospace' font-weight='bold' text-anchor='middle' fill='white'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">&lt;/&gt;</span>
+      <div>
+        <h1>Online Code Playground</h1>
+        <p class="subtitle">Write HTML, CSS and JavaScript, then click Run to see the live result.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="runBtn" class="btn btn-run" type="button" title="Run (Ctrl + Enter)">&#9654; Run</button>
+      <button id="sampleBtn" class="btn btn-sample" type="button">Load Sample</button>
+      <button id="resetBtn" class="btn btn-reset" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="editors" aria-label="Code editors">
+      <div class="panel">
+        <div class="panel-head">
+          <label for="htmlCode"><span class="dot dot-html"></span>HTML</label>
+          <button class="clear-btn" type="button" data-clear="htmlCode">Clear</button>
+        </div>
+        <textarea id="htmlCode" spellcheck="false" autocomplete="off" autocapitalize="off"
+          placeholder="Write HTML here (only the body content), for example:&#10;&lt;h1&gt;Hello World&lt;/h1&gt;"></textarea>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <label for="cssCode"><span class="dot dot-css"></span>CSS</label>
+          <button class="clear-btn" type="button" data-clear="cssCode">Clear</button>
+        </div>
+        <textarea id="cssCode" spellcheck="false" autocomplete="off" autocapitalize="off"
+          placeholder="Write CSS here, for example:&#10;h1 { color: tomato; }"></textarea>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <label for="jsCode"><span class="dot dot-js"></span>JavaScript</label>
+          <button class="clear-btn" type="button" data-clear="jsCode">Clear</button>
+        </div>
+        <textarea id="jsCode" spellcheck="false" autocomplete="off" autocapitalize="off"
+          placeholder="Write JavaScript here, for example:&#10;document.querySelector('h1').textContent = 'Hi!';"></textarea>
+      </div>
+    </section>
+
+    <section class="output" aria-label="Output preview">
+      <div class="panel panel-output">
+        <div class="panel-head">
+          <span class="output-title"><span class="dot dot-out"></span>Output Preview</span>
+          <span id="status" class="status" role="status" aria-live="polite">Ready</span>
+        </div>
+        <iframe id="preview" title="Output preview" sandbox="allow-scripts allow-modals allow-forms"></iframe>
+        <div id="errorBox" class="error-box" hidden role="alert"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Tip: press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> inside any editor to run. Your code runs in a sandboxed iframe.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
